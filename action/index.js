@@ -8494,6 +8494,7 @@ async function run() {
 }
 const pr = async () => {
   const { pull_request } = context.payload;
+  console.log('PR', pull_request)
 };
 run();
 

@@ -1,0 +1,17 @@
+name: 👷
+
+on:
+  pull_request:
+    types: [opened]
+  push:
+    branches: [main]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          GITHUB_TOKEN: ${{secrets.ACTION_GITHUB_TOKEN}}

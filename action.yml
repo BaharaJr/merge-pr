@@ -1,0 +1,15 @@
+name: 'Automatically Merge Pull Requests'
+description: 'Automatically Merge Pull Requests'
+author: 'Bennett Benedict'
+
+inputs:
+  GITHUB_TOKEN:
+    description: 'GitHub Token'
+    required: true
+runs:
+  using: 'node16'
+  main: 'action/index.js'
+
+branding:
+  icon: 'package'
+  color: 'gray-dark'

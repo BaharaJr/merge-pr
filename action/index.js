@@ -8493,12 +8493,16 @@ async function run() {
   }
 }
 const pr = async () => {
-  const { pull_request } = context.payload;
-  octokit.rest.pulls.merge({
-    owner: pull_request.head.repo.owner.login,
-    repo: pull_request.head.repo.name,
-    pull_number: pull_request.number,
-  });
+  try {
+    const { pull_request } = context.payload;
+    octokit.rest.pulls.merge({
+      owner: pull_request.head.repo.owner.login,
+      repo: pull_request.head.repo.name,
+      pull_number: pull_request.number,
+    });
+  } catch (e) {
+    core.setFailed(e.message);
+  }
 };
 run();
 

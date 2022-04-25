@@ -8482,14 +8482,15 @@ async function run() {
     case 'pull_request':
       return pr();
     case 'push':
-      core.setFailed(
+      core.warning (
         `Event <${context.eventName}> is still WIP and will be available soon. Please submit an issue to the repo for quick delivery.`,
       );
       break;
     default:
-      core.setFailed(
+      core.warning(
         `Event <${context.eventName}> is still WIP and will be available soon. Please submit an issue to the repo for quick delivery.`,
       );
+     break;
   }
 }
 const pr = async () => {
